@@ -73,7 +73,3 @@ DB_NAME=spatial_db
 DB_USER=username
 DB_PASSWORD=password
 ```
-
----
-
-**Note:** For production, always use strong passwords and restrict database access.
