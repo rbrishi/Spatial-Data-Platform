@@ -9,12 +9,28 @@ This project is a FastAPI backend for storing, updating, and retrieving spatial 
 - PostgreSQL + PostGIS for spatial data storage
 - SQLAlchemy ORM and Pydantic validation
 
+## Project Structure
+
+```
+spatial_api/
+  app/
+    database.py
+    main.py
+    models.py
+    routers/
+      points.py
+      polygons.py
+    schemas.py
+  requirements.txt
+  README.md
+```
+
 ## Setup Instructions
 
 1. **Clone the repository:**
    ```bash
    git clone https://github.com/rbrishi/Spatial-Data-Platform.git
-   cd Spatial-Data-Platform/backend
+   cd Spatial-Data-Platform
    ```
 2. **Install dependencies:**
    ```bash
@@ -22,13 +38,17 @@ This project is a FastAPI backend for storing, updating, and retrieving spatial 
    ```
 3. **Configure the database:**
    - Set up PostgreSQL and enable the PostGIS extension.
-   - Create a `.env` file in the `backend` directory with your database URL:
+   - Create a `.env` file in the project root with your database credentials:
      ```
-     DATABASE_URL=postgresql+psycopg2://username:password@localhost:5432/spatial_db
+     DB_HOST=localhost
+     DB_PORT=5432
+     DB_NAME=spatial_db
+     DB_USER=username
+     DB_PASSWORD=password
      ```
 4. **Run the application:**
    ```bash
-   uvicorn main:app --reload
+   uvicorn app.main:app --reload
    ```
 5. **Access the API docs:**
    - Open [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs) in your browser.
@@ -47,7 +67,11 @@ This project is a FastAPI backend for storing, updating, and retrieving spatial 
 ## Example `.env.example`
 
 ```
-DATABASE_URL=postgresql+psycopg2://username:password@localhost:5432/spatial_db
+DB_HOST=localhost
+DB_PORT=5432
+DB_NAME=spatial_db
+DB_USER=username
+DB_PASSWORD=password
 ```
 
 ---
